@@ -10,9 +10,10 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
-  function handleClick() {
-     router.push("/Dashboard"); ;
-  }
+function handleClick(e) {
+  e.preventDefault();
+  router.push("/Dashboard");
+}
 
   function togglePassword() {
     setShowPassword(!showPassword);
@@ -80,12 +81,13 @@ export default function LoginPage() {
           </div>
 
 
-          <button
-            className={`${styles.button} ${clicked ? styles.clicked : ""}`}
-            onClick={handleClick}
-          >
-            Log In
-          </button>
+<button
+  type="button"
+  className={`${styles.button} ${clicked ? styles.clicked : ""}`}
+  onClick={handleClick}
+>
+  Log In
+</button>
 
         </form>
 
