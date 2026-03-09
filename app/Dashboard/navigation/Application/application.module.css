@@ -1,0 +1,147 @@
+/* PAGE CONTAINER */
+.page {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #f4f6f9;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+/* MAIN SECTION */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 120px;
+  max-width: 900px;
+}
+
+/* TITLE */
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 20px;
+}
+
+/* DESCRIPTION */
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 25px;
+  max-width: 750px;
+}
+
+/* REQUIREMENTS BOX */
+.requirements {
+  background: white;
+  padding: 20px 25px;
+  border-left: 4px solid #1f2a44;
+  margin-bottom: 25px;
+  width: 550px;
+}
+
+.requirements h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1f2a44;
+  display: flex;
+  align-items: center;
+}
+
+.requirements ul {
+  padding-left: 20px;
+}
+
+.requirements li {
+  margin-bottom: 6px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+/* Notes BOX */
+.notes {
+  background: white;
+  padding: 20px 25px;
+  border-left: 4px solid #0ea900;
+  margin-bottom: 25px;
+  width: 550px;
+}
+
+.notes h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1f2a44;
+  display: flex;
+  align-items: center;
+}
+
+.notes ul {
+  padding-left: 20px;
+}
+
+.notes li {
+  margin-bottom: 6px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+
+/* COLLAPSIBLE LIST CONTAINER */
+.collapsibleList {
+  margin-top: 10px;
+  padding-left: 20px; /* aligns with original li padding */
+  display: none; /* hidden by default */
+}
+
+.collapsibleList li {
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* NOTE */
+.note {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 650px;
+}
+
+/* BUTTON AREA */
+.startBtn {
+  background: #1f2a44;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.startBtn:hover {
+  background: #162036;
+}
+
+.readMoreBtn{
+     background: #1f1f1eb0;
+  color: white;
+  border: none;
+  padding: 6px 18px;
+  font-size: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s; 
+}
+
+.readMoreBtn:hover{
+  background-color: black;
+}

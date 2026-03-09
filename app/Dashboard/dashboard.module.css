@@ -1,0 +1,307 @@
+/* ===================== */
+/*      CONTAINER        */
+/* ===================== */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: #f4f8f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===================== */
+/*        SIDEBAR        */
+/* ===================== */
+.sidebar {
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo Area */
+.logoArea {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7d40e;
+  color: #464444;
+}
+
+.logoArea h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ===================== */
+/*      NAVIGATION        */
+/* ===================== */
+.navLinks {
+  list-style: none;
+  padding: 20px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+   transition: 0.25s ease;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column; /* allows submenu to push content */
+   transition: 0.25s ease;
+}
+
+.navItem > .navItemContent,
+.navItem > .profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #444;
+  transition: 0.25s;
+  border-radius: 6px;
+}
+
+.navItem:hover > .navItemContent,
+.navItem:hover > .profileHeader {
+  background: rgba(170, 159, 0, 0.12);
+  color: #565a58;
+}
+
+.active > .navItemContent {
+  background: rgba(170, 150, 0, 0.12);
+  border-left: 4px solid #e2cf02;
+  color: #565a58;
+  font-weight: 600;
+   transition: 0.25s ease;
+}
+.navItemContent{
+  text-decoration:none;
+  color:inherit;
+}
+
+.subItem{
+  text-decoration:none;
+  color:inherit;
+}
+.icon {
+  font-size: 16px;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+/* ===================== */
+/*       SUBMENU          */
+/* ===================== */
+.subMenu {
+  list-style: none;
+  padding-left: 35px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.23s ease-in;
+  background: #e8e8e7;
+  border-radius: 0 0 6px 6px;
+}
+
+.subMenu.open {
+  max-height: 500px; /* enough for all submenu items */
+}
+
+.subItem {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 4px;
+}
+
+.subItem:hover {
+  background-color: rgba(130, 129, 128, 0.12);
+  color: #24231d;
+}
+
+.subIcon {
+  font-size: 14px;
+}
+
+/* ===================== */
+/*       MAIN AREA        */
+/* ===================== */
+.mainArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Bar */
+.topBar {
+  height: 70px;
+  background: #00aa55;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.pageTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #f6f6f6;
+}
+
+/* Right Top Actions */
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.userReg {
+  background: rgb(255, 255, 255);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #494212;
+  font-weight: 500;
+}
+.regtitle{
+  color: #673a03;
+  font-weight: 500;
+}
+.topIcon {
+  font-size: 18px;
+  cursor: pointer;
+  color: #f6f6f6;
+  transition: 0.2s;
+}
+
+.topIcon:hover {
+  color: #5e8873;
+}
+
+/* Content Area */
+.content {
+
+  flex: 1;
+  overflow: auto;
+}
+
+.homepage{
+    padding: 30px;
+}
+
+/* ===================== */
+/*     DASHBOARD CARDS    */
+/* ===================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.cardItem {
+  padding: 20px;
+  border-radius: 12px;
+  color: #444;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 5px solid transparent; /* left border color will be set inline */
+  background: #fff;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.cardItem h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cardItem p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.cardItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Progress Bar Container */
+.progressBar {
+  width: 100%;
+  height: 6px; /* thin line */
+  background: #e0e0e0; /* light gray background */
+  border-radius: 3px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+/* Progress Fill */
+.progressFill {
+  height: 100%;
+  width: 100%; /* static for demo */
+  border-radius: 3px;
+  background: linear-gradient(90deg, #00aa55, rgb(240, 200, 20), #ff901e);
+  transition: width 0.5s ease-in-out;
+}
+
+/* Placeholder Panel */
+.panel {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.panelContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Scrollbar */
+.mainArea::-webkit-scrollbar {
+  width: 6px;
+}
+.mainArea::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* ===================== */
+/*       RESPONSIVE       */
+/* ===================== */
+@media(max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+  .navItem > .profileHeader {
+    padding: 8px 12px;
+  }
+}

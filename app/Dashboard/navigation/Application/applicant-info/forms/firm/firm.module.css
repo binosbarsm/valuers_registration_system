@@ -1,0 +1,145 @@
+.container{
+  padding:40px 60px;
+  background:#fff;
+  border-radius:8px;
+  max-width:950px;
+  margin:20px auto;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.title{
+  font-size:26px;
+  color:#00aa55;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#666;
+  margin-bottom:30px;
+}
+
+/* SECTION HEADERS */
+
+.sectionTitle{
+  font-size:20px;
+  font-weight:600;
+  margin-top:35px;
+  margin-bottom:15px;
+  color:#1f2a44;
+  border-left:4px solid #00aa55;
+  padding-left:10px;
+}
+
+.subSection{
+  font-size:16px;
+  margin-top:20px;
+  margin-bottom:10px;
+  color:#333;
+}
+
+
+/* GRID FORM */
+
+.formGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.formGrid input{
+  padding:10px 12px;
+  border:1px solid #e5e8f0;
+  border-radius:6px;
+  font-size:14px;
+  background:#fff;
+}
+
+.formGrid input:focus{
+  outline:none;
+  border-color:#00aa55;
+  box-shadow:0 0 0 2px rgba(0,170,85,0.1);
+}
+
+
+/* DYNAMIC CARDS */
+
+.card{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:14px;
+  padding:18px;
+  border:1px solid #e5e8f0;
+  border-radius:8px;
+  background:#f9fafc;
+  margin-bottom:12px;
+}
+
+.card input{
+  padding:10px 12px;
+  border:1px solid #e5e8f0;
+  border-radius:6px;
+  font-size:14px;
+  background:white;
+}
+
+.card input:focus{
+  outline:none;
+  border-color:#00aa55;
+  box-shadow:0 0 0 2px rgba(0,170,85,0.1);
+}
+
+
+/* ADD BUTTON */
+
+.addBtn{
+  margin-top:5px;
+  margin-bottom:15px;
+  background:#ff901e;
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:6px;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.addBtn:hover{
+  background:#e67f15;
+}
+
+
+/* BUTTON GROUP */
+
+.buttonGroup{
+  margin-top:35px;
+  display:flex;
+  gap:15px;
+}
+
+.prevBtn{
+  background:#ff901e;
+  color:white;
+  border:none;
+  padding:12px 26px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.prevBtn:hover{
+  background:#e67f15;
+}
+
+.nextBtn{
+  background:#00aa55;
+  color:white;
+  border:none;
+  padding:12px 26px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.nextBtn:hover{
+  background:#00994d;
+}

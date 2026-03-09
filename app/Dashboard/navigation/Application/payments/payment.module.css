@@ -1,0 +1,121 @@
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #00ac5c; /* Organization color */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.warning {
+  font-size: 16px;
+  color: #474747; /* Amber color */
+  margin-bottom: 25px;
+}
+
+.controlBox {
+  margin-bottom: 25px;
+}
+
+.controlBox h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1f2a44;
+}
+
+.controlNumber {
+  font-size: 26px;
+  font-weight: 700;
+  color: #00aa55; /* Organization color */
+  letter-spacing: 2px;
+  background: #f0f8f5;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.controlBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #455f52;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.controlBtn:hover{
+     background: #00aa55;
+}
+
+.controlBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Apple-style spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: #fff;
+  border-radius: 4px;
+  animation: spinFade 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes spinFade {
+  0% { transform: rotate(0deg) scaleY(1); opacity: 1; }
+  50% { transform: rotate(180deg) scaleY(0.3); opacity: 0.5; }
+  100% { transform: rotate(360deg) scaleY(1); opacity: 1; }
+}
+
+.confirmSection {
+  margin-bottom: 15px;
+  text-align: end;
+}
+
+.confirmBtn {
+  background: #ff8f1e;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.confirmBtn:hover{
+     background: #ff7f00;
+}
+
+.confirmBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.instruction {
+  font-size: 16px;
+  color: #1f2a44; /* dark, professional color */
+  margin-bottom: 20px;
+  line-height: 1.5;
+}

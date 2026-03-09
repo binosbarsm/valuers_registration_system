@@ -1,0 +1,220 @@
+/* Remove scroll and enforce full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  display:flex;
+  height:100vh;
+  width:100%;
+  font-family:sans-serif;
+}
+
+/* LEFT PANEL */
+.leftPanel {
+  flex:1;
+  background:#00aa55;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:60px;
+  position:relative;
+}
+
+.leftPanel h1 {
+  margin-top:20px;
+  font-size:34px;
+  line-height:1.2;
+  font-weight:700;
+}
+
+.leftPanel p {
+  margin-top:15px;
+  max-width:360px;
+  line-height:1.6;
+  opacity:0.95;
+  font-size:16px;
+  text-align:center;
+}
+
+.leftPanel .tagline {
+  margin-top:10px;
+  font-size:14px;
+  font-weight:500;
+  opacity:0.8;
+}
+
+.decor {
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:rgb(240,215,20);
+  border-radius:50%;
+  bottom:-120px;
+  right:-120px;
+  opacity:.25;
+}
+
+/* RIGHT PANEL */
+.rightPanel {
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f5f5f5;
+}
+
+/* CARD */
+.card {
+  width:420px;
+  max-width:90%;
+  background:#fff;
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+  display:flex;
+  flex-direction:column;
+  animation:fadeIn .7s ease;
+}
+
+.title { font-size:24px; margin-bottom:20px; }
+
+.form { display:flex; flex-direction:column; gap:14px; }
+
+.input {
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-size:14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input:focus {
+  outline:none;
+  border-color:#00aa55;
+  box-shadow:0 0 0 2px rgba(0,170,85,0.15);
+}
+
+/* PASSWORD FIELD */
+.passwordField {
+  display:flex;
+  flex-direction:column;
+
+}
+
+.inputWithIcon {
+    padding: 2px 28px 2px 2px;
+      width:100%;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  margin: 0;
+}
+
+.inputWithIcon .inputpass {
+  padding:14px;
+  border: none;
+  width:85%;
+  font-size:14px;
+  flex: 1;
+  outline: none;
+}
+
+.inputWithIcon:focus-within {
+  border-color: #00aa55;
+  box-shadow: 0 0 0 2px rgba(0,170,85,0.15);
+}
+/* ICON */
+.icon {
+  cursor:pointer;
+  font-size:18px;
+  color:#555;
+  user-select:none;
+  
+  
+}
+
+/* Strength Meter */
+.strengthContainer {
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.strengthBar {
+  width:100%;
+  height:6px;
+  background:#eee;
+  border-radius:4px;
+  overflow:hidden;
+}
+
+.strengthFill {
+  height:100%;
+  width:0%;
+  border-radius:4px;
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.strengthText {
+  font-size:12px;
+  color:#555;
+  font-weight:500;
+}
+
+/* BUTTON */
+.button {
+  margin-top:10px;
+  background:#00aa55;
+  color:#fff;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  font-size:15px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.button:hover {
+  background:#ff901e;
+  transform:translateY(-2px);
+}
+
+/* LOGIN LINK */
+.loginText {
+  margin-top:18px;
+  font-size:14px;
+}
+
+.loginText span {
+  color:#00aa55;
+  margin-left:6px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.loginText span:hover {
+  color:#ff901e;
+}
+
+/* CARD ANIMATION */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* MOBILE */
+@media (max-width:900px){
+  .container {flex-direction:column;}
+  .leftPanel {display:none;}
+}

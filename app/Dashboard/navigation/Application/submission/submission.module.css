@@ -1,0 +1,145 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2a44;
+  margin-bottom: 25px;
+}
+
+/* --- Summary Card --- */
+.summaryCard {
+  background: #f8f9fc;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.summaryRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.summaryItem {
+  flex: 1 1 140px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #1f2a44;
+}
+
+.label {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.value {
+  font-weight: 600;
+}
+
+/* Actions */
+.summaryActions {
+  display: flex;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #00aa55;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.iconBtn:hover {
+  background: #008a45;
+}
+
+/* --- Declaration --- */
+.declarationCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border-left: 5px solid #00aa55;
+  background: #f7fcf9;
+  padding: 20px 20px 20px 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.checkboxWrapper {
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+.checkboxWrapper input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.declarationText {
+  flex: 1 1 auto;
+  font-size: 14px;
+  color: #1f2a44;
+  line-height: 1.5;
+}
+
+.note {
+  display: block;
+  font-size: 12px;
+  color: #555;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* --- Buttons --- */
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.prevBtn {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.prevBtn:hover {
+  background: #b3b3b3;
+}
+
+.submitBtn {
+  background: #00aa55;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submitBtn:disabled {
+  background: #a0d5b2;
+  cursor: not-allowed;
+}
