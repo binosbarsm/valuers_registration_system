@@ -10,8 +10,8 @@ export default function DashboardHome() {
 
         {/* Applications Status with progress bar */}
         <div className={styles.cardItem}>
-          <h3>Applications Status</h3>
-          <p>100%</p>
+          <h3>Received Applications</h3>
+          <p>100</p>
           <div className={styles.progressBar}>
             <div 
               className={styles.progressFill} 
@@ -22,8 +22,8 @@ export default function DashboardHome() {
 
         {/* Registrations Status with progress bar */}
         <div className={styles.cardItem}>
-          <h3>Registrations Status</h3>
-          <p>100%</p>
+          <h3>Pending Requests</h3>
+          <p>100</p>
           <div className={styles.progressBar}>
             <div 
               className={styles.progressFill} 
@@ -34,23 +34,23 @@ export default function DashboardHome() {
 
         {/* Pending Payments */}
         <div className={styles.cardItem} style={{ borderLeftColor: "#ff901e" }}>
-          <h3>Pending Payments</h3>
+          <h3>Approved Applications</h3>
           <p>1</p>
         </div>
 
         {/* Certificates Issued */}
         <div className={styles.cardItem} style={{ borderLeftColor: "#02210f" }}>
-          <h3>Certificates Issued</h3>
-          <p>None</p>
+          <h3>Total Valuers</h3>
+          <p>1023</p>
         </div>
 
       </div>
 
       {/* Placeholder Panel */}
       <div className={styles.panel}>
-        <h2>Recent notification</h2>
+        <h2>News</h2>
         <div className={styles.panelContent}>
-          <p>✔ Your application was approved it is under consideration now...</p>
+          <p>New update of applicants have been added you can view them on submission page</p>
         </div>
       </div>
     </div>

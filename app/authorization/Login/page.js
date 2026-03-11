@@ -12,7 +12,7 @@ export default function LoginPage() {
 
 function handleClick(e) {
   e.preventDefault();
-  router.push("/Dashboard");
+  router.push("/boarddashboard");
 }
 
   function togglePassword() {

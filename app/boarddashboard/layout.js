@@ -1,13 +1,12 @@
 "use client";
 
-
 import styles from "./dashboard.module.css";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
-
+import { IoMdSettings } from "react-icons/io";
+import { RiPassValidFill } from "react-icons/ri";
 
 import { 
   FaHome, FaFileAlt, FaUserPlus, FaUser,
@@ -20,9 +19,9 @@ export default function DashboardLayout({ children }) {
   const pathname = usePathname();
 
   const [openProfile, setOpenProfile] = useState(
-    pathname.startsWith("/Dashboard/navigation/profile")
+    pathname.startsWith("/boarddashboard/navigation/settings")
   );
-const [openUserMenu, setOpenUserMenu] = useState(false);
+    const [openUserMenu, setOpenUserMenu] = useState(false);
     const menuRef = useRef(null);
 
     useEffect(() => {
@@ -42,17 +41,17 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
 
   const getPageTitle = () => {
 
-  if (pathname === "/Dashboard") return "Dashboard";
+  if (pathname === "//boarddashboard") return "Dashboard";
 
-  if (pathname.includes("/Application")) return "Application";
+  if (pathname.includes("/submission")) return "Submissions";
 
-  if (pathname.includes("/Registration")) return "Registration";
+  if (pathname.includes("/approved")) return "Approved";
 
-  if (pathname.includes("/profile/account")) return "Account";
+  if (pathname.includes("/settings/profile")) return "Profile";
 
-  if (pathname.includes("/profile/password")) return "Password";
+  if (pathname.includes("/settings/password")) return "Password";
 
-  if (pathname.includes("/profile/reports")) return "Reports";
+  if (pathname.includes("/settings/report")) return "Reports";
 
   return "Dashboard";
 };
@@ -66,33 +65,33 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
         {/* Logo */}
         <div className={styles.logoArea}>
           <Image src="/vrblogo.png" width={100} height={100} alt="Company Logo" />
-          <h3>Valuers Registration Portal</h3>
+          <h3>Board Portal</h3>
         </div>
 
         {/* Navigation */}
         <ul className={styles.navLinks}>
 
           {/* HOME */}
-          <li className={`${styles.navItem} ${pathname === "/Dashboard" ? styles.active : ""}`}>
-            <Link href="/Dashboard" className={styles.navItemContent}>
+          <li className={`${styles.navItem} ${pathname === "/boarddashboard" ? styles.active : ""}`}>
+            <Link href="/boarddashboard" className={styles.navItemContent}>
               <FaHome className={styles.icon}/>
               <span>Home</span>
             </Link>
           </li>
 
-          {/* APPLICATION */}
-          <li className={`${styles.navItem} ${pathname.startsWith("/Dashboard/navigation/Application") ? styles.active : ""}`}>
-            <Link href="/Dashboard/navigation/Application" className={styles.navItemContent}>
+          {/* Submissions */}
+          <li className={`${styles.navItem} ${pathname.startsWith("/boarddashboard/navigation/submission") ? styles.active : ""}`}>
+            <Link href="/boarddashboard/navigation/submission" className={styles.navItemContent}>
               <FaFileAlt className={styles.icon}/>
-              <span>Application</span>
+              <span>Submissions</span>
             </Link>
           </li>
 
-          {/* REGISTRATION */}
-          <li className={`${styles.navItem} ${pathname.startsWith("/Dashboard/navigation/Registration") ? styles.active : ""}`}>
-            <Link href="/Dashboard/navigation/Registration" className={styles.navItemContent}>
-              <FaUserPlus className={styles.icon}/>
-              <span>Registration</span>
+          {/* Approved */}
+          <li className={`${styles.navItem} ${pathname.startsWith("/boarddashboard/navigation/approved") ? styles.active : ""}`}>
+            <Link href="/boarddashboard/navigation/approved" className={styles.navItemContent}>
+              <RiPassValidFill className={styles.icon}/>
+              <span>Approved</span>
             </Link>
           </li>
 
@@ -103,8 +102,9 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
               className={styles.profileHeader}
               onClick={() => setOpenProfile(!openProfile)}
             >
-              <FaUser className={styles.icon}/>
-              <span>Profile</span>
+              {/* settings */}
+              <IoMdSettings className={styles.icon}/>
+              <span>Settings</span>
               <span className={styles.arrow}>
                 {openProfile ? <FaChevronUp/> : <FaChevronDown/>}
               </span>
@@ -112,28 +112,28 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
 
             <ul className={`${styles.subMenu} ${openProfile ? styles.open : ""}`}>
 
-              <li className={pathname === "/Dashboard/navigation/profile/account" ? styles.active : ""}>
-                <Link href="/Dashboard/navigation/profile/account" className={styles.subItem}>
-                  <FaUserCircle className={styles.subIcon}/> Account
+              <li className={pathname === "/boarddashboard/navigation/settings/profile" ? styles.active : ""}>
+                <Link href="/boarddashboard/navigation/settings/profile" className={styles.subItem}>
+                  <FaUserCircle className={styles.subIcon}/> Profile
                 </Link>
               </li>
 
-              <li className={pathname === "/Dashboard/navigation/profile/password" ? styles.active : ""}>
-                <Link href="/Dashboard/navigation/profile/password" className={styles.subItem}>
+              <li className={pathname === "/boarddashboard/navigation/settings/password" ? styles.active : ""}>
+                <Link href="/boarddashboard/navigation/settings/password" className={styles.subItem}>
                   <FaKey className={styles.subIcon}/> Password
-                </Link>
-              </li>
-
-              <li className={pathname === "/Dashboard/navigation/profile/reports" ? styles.active : ""}>
-                <Link href="/Dashboard/navigation/profile/reports" className={styles.subItem}>
-                  <FaChartBar className={styles.subIcon}/> Reports
                 </Link>
               </li>
 
             </ul>
 
           </li>
-
+          {/* Reports */}
+          <li className={`${styles.navItem} ${pathname.startsWith("/boarddashboard/navigation/reports") ? styles.active : ""}`}>
+            <Link href="/boarddashboard/navigation/reports" className={styles.navItemContent}>
+              <FaChartBar className={styles.icon}/>
+              <span>Reports</span>
+            </Link>
+          </li>
         </ul>
 
       </nav>
@@ -147,8 +147,7 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
 
           <div className={styles.topActions}>
             <div className={styles.userReg}>
-              <span className={styles.regtitle}>REG NO:</span>{" "}
-              <strong>VRB-2025-0142</strong>
+              <strong>Registrar</strong>
             </div>
 
             <FaBell className={styles.topIcon}/>
