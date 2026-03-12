@@ -2,14 +2,72 @@
 
 import styles from "./account.module.css";
 import { useRouter } from "next/navigation";
+/** certificate gen imports */
+import { PDFDocument} from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
+import { rgb } from "pdf-lib";
 
 export default function AccountPage(){
 
 const router = useRouter();
 
-function handleCertificate(){
-    router.push("/Dashboard/certificate");
+/** certificate generation */
+ const generateCertificate = async () => {
+
+    const existingPdfBytes = await fetch("/cheti.pdf")
+      .then(res => res.arrayBuffer());
+
+    const fontBytes = await fetch("/fonts/certificatefont.ttf")
+      .then(res => res.arrayBuffer());
+
+    const pdfDoc = await PDFDocument.load(existingPdfBytes);
+
+    pdfDoc.registerFontkit(fontkit);
+
+    const customFont = await pdfDoc.embedFont(fontBytes);
+
+    const page = pdfDoc.getPages()[0];
+
+    const { width } = page.getSize();
+
+    const name = "PAUL DANIEL Qia";
+
+    const fontSize = 30;
+
+    const textWidth = customFont.widthOfTextAtSize(name, fontSize);
+
+    const x = (width - textWidth) / 2;
+
+    const y = 380;
+
+    function rgb255(r, g, b) {
+  return rgb(r / 255, g / 255, b / 255);
 }
+
+    page.drawText(name, {
+      x,
+      y,
+      size: fontSize,
+      font: customFont,
+      color: rgb255(11, 134, 75)
+    });
+
+    const pdfBytes = await pdfDoc.save();
+
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "certificate.pdf";
+
+    link.click();
+
+  };
+
+  /** code end */
 
 return(
 
@@ -132,7 +190,7 @@ manager of Tpds
 
 <button
 className={styles.certificateBtn}
-onClick={handleCertificate}
+onClick={generateCertificate}
 >
 
 Generate Certificate
