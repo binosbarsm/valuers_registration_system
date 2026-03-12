@@ -143,3 +143,104 @@
   background: #a0d5b2;
   cursor: not-allowed;
 }
+
+
+/* modal overlay */
+
+.modalOverlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+/* modal box */
+
+.modal{
+background:white;
+padding:40px;
+border-radius:12px;
+text-align:center;
+width:320px;
+animation:fadeIn 0.3s ease;
+}
+
+/* animation container */
+
+.successAnimation{
+position:relative;
+width:90px;
+height:90px;
+margin:0 auto 20px auto;
+}
+
+/* animated circle */
+
+.circle{
+width:90px;
+height:90px;
+border-radius:50%;
+border:4px solid #00aa55;
+border-top-color:transparent;
+animation:spinCircle 1s ease forwards;
+}
+
+/* check */
+
+.check{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:40px;
+color:#00aa55;
+font-weight:bold;
+}
+
+/* animation */
+
+@keyframes spinCircle{
+
+0%{
+transform:rotate(0deg);
+opacity:0;
+}
+
+100%{
+transform:rotate(360deg);
+opacity:1;
+}
+
+}
+
+/* modal text */
+
+.successText{
+color:#5a5f5f;
+font-size:20px;
+margin-bottom:20px;
+}
+
+/* next button */
+
+.nextBtn{
+background:#347dd6;
+color:white;
+border:none;
+padding:10px 26px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+outline: 2px solid #a0c5f3;
+  outline-offset: 2px;
+}
+
+.nextBtn:hover{
+background:#0259c4;
+}

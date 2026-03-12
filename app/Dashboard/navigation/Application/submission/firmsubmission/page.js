@@ -8,6 +8,7 @@ import { FaEdit, FaEye } from "react-icons/fa";
 export default function FinalStage({ prevStep }) {
   const [formData, setFormData] = useState(null);
   const [agreed, setAgreed] = useState(false);
+    const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,8 +23,16 @@ export default function FinalStage({ prevStep }) {
   const handleSubmit = () => {
     if (!agreed) return;
     console.log("Final data submitted:", formData);
-    router.push("/Dashboard/navigation/Application/submitted");
+    router.push("/Dashboard/navigation/Application/payments.firmpayments");
   };
+
+     function handlesubmission(){
+    setShowModal(true);
+  }
+
+    function handleNext(){
+    router.push("/Dashboard/navigation/Application/payments.firmpayments");
+  }
 
   return (
     <div className={styles.container}>
@@ -124,10 +133,39 @@ export default function FinalStage({ prevStep }) {
         <button className={styles.prevBtn} onClick={prevStep}>
           Prev
         </button>
-        <button className={styles.submitBtn} disabled={!agreed} onClick={handleSubmit}>
+          <button className={styles.submitBtn} disabled={!agreed} onClick={handlesubmission}>
           Submit Application
         </button>
       </div>
+      {/* SUCCESS MODAL */}
+
+      {showModal && (
+
+        <div className={styles.modalOverlay}>
+
+          <div className={styles.modal}>
+
+            <div className={styles.successAnimation}>
+              <div className={styles.circle}></div>
+              <div className={styles.check}>✓</div>
+            </div>
+
+            <h2 className={styles.successText}>
+              Application Sent Successfully! 
+            </h2>
+
+            <button
+              className={styles.nextBtn}
+              onClick={handleNext}
+            >
+              Proceed 
+            </button>
+
+          </div>
+
+        </div>
+
+      )}
     </div>
   );
 }

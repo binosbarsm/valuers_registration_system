@@ -49,9 +49,9 @@ export default function DashboardHome() {
       {/* Placeholder Panel */}
       <div className={styles.panel}>
         <h2>News</h2>
-        <div className={styles.panelContent}>
-          <p>New update of applicants have been added you can view them on submission page</p>
-        </div>
+        <ul className={styles.panelContent}>
+          <li>New update of applicants have been added you can view them on submission page</li>
+        </ul>
       </div>
     </div>
   );

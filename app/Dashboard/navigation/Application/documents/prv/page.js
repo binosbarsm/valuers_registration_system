@@ -52,18 +52,17 @@ export default function UploadDocuments() {
   const handleSubmit = () => {
     if (!photo) {
       alert("Please upload your passport photo before submitting.")
-      return
+
     }
 
     // Ensure all documents are uploaded
     for (const doc of documents) {
       if (!doc.file) {
         alert(`Please upload the ${doc.type}.`)
-        return
       }
     }
 
-    // Save photo & documents metadata to sessionStorage
+    /** Save photo & documents metadata to sessionStorage
     sessionStorage.setItem("userPhoto", JSON.stringify({
       name: photo.name,
       type: photo.type,
@@ -79,8 +78,8 @@ export default function UploadDocuments() {
         mimeType: d.file.type
       }))
     ))
-
-    router.push("/Dashboard/navigation/Application/payments")
+ **/
+    router.push("/Dashboard/navigation/Application/submission")
   }
 
   const getFileIcon = (file) => {

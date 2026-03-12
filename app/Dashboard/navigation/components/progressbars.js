@@ -11,8 +11,9 @@ export default function ProgressBar({ currentStep }) {
     { label: "Registration Type", icon: <FaUserEdit /> },
     { label: "Fill Form", icon: <FaFileAlt /> },
     { label: "Upload Documents", icon: <FaUpload /> },
-    { label: "Payment", icon: <FaMoneyBillWave /> },
     { label: "Review", icon: <FaCheckCircle /> },
+    { label: "Payment", icon: <FaMoneyBillWave /> }
+    
 
   ];
 

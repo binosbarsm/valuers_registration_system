@@ -30,7 +30,7 @@ export default function UploadDocuments() {
 
   // Navigate to payment page
   const handleClick = () => {
-    router.push("/Dashboard/navigation/Application/payments")
+    router.push("/Dashboard/navigation/Application/submission")
   }
 
   // Determine icon based on file type

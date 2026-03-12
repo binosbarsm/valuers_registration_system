@@ -127,13 +127,7 @@ export default function DashboardLayout({ children }) {
             </ul>
 
           </li>
-          {/* Reports */}
-          <li className={`${styles.navItem} ${pathname.startsWith("/boarddashboard/navigation/reports") ? styles.active : ""}`}>
-            <Link href="/boarddashboard/navigation/reports" className={styles.navItemContent}>
-              <FaChartBar className={styles.icon}/>
-              <span>Reports</span>
-            </Link>
-          </li>
+   
         </ul>
 
       </nav>

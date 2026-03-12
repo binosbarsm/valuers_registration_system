@@ -52,7 +52,6 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
 
   if (pathname.includes("/profile/password")) return "Password";
 
-  if (pathname.includes("/profile/reports")) return "Reports";
 
   return "Dashboard";
 };
@@ -123,13 +122,6 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
                   <FaKey className={styles.subIcon}/> Password
                 </Link>
               </li>
-
-              <li className={pathname === "/Dashboard/navigation/profile/reports" ? styles.active : ""}>
-                <Link href="/Dashboard/navigation/profile/reports" className={styles.subItem}>
-                  <FaChartBar className={styles.subIcon}/> Reports
-                </Link>
-              </li>
-
             </ul>
 
           </li>
@@ -148,9 +140,8 @@ const [openUserMenu, setOpenUserMenu] = useState(false);
           <div className={styles.topActions}>
             <div className={styles.userReg}>
               <span className={styles.regtitle}>REG NO:</span>{" "}
-              <strong>VRB-2025-0142</strong>
+              <strong>VRB/AR/4412</strong>
             </div>
-
             <FaBell className={styles.topIcon}/>
            <div className={styles.userMenuWrapper} ref={menuRef}>
 

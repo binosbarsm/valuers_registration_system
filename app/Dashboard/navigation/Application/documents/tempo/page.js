@@ -47,7 +47,7 @@ export default function UploadDocuments() {
       
     }
 
-    router.push("/Dashboard/navigation/Application/payments")
+    router.push("/Dashboard/navigation/Application/submission")
   }
 
   const renderFileIcon = (file) => {

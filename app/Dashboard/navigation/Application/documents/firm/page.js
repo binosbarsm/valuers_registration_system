@@ -48,7 +48,7 @@ export default function UploadDocuments() {
       titleDeed
     }
     sessionStorage.setItem("firmDocuments", JSON.stringify(finalDocs))
-    router.push("/Dashboard/navigation/Application/payments/firmpayment")
+    router.push("/Dashboard/navigation/Application/submission/firmsubmission")
   }
 
   return (
