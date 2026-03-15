@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import react,{ useState,useContext } from "react";
+import { stageContext } from "../layout";
 import styles from "./payment.module.css";
 import { useRouter } from "next/navigation";
 
 export default function PaymentSection() {
-
+const {now,setNow}= useContext(stageContext);
   const [controlNumber, setControlNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const router = useRouter();
 
   // Generate control number
@@ -50,6 +51,7 @@ const [showModal, setShowModal] = useState(false);
 
   function handleNext(){
     router.push("/Dashboard");
+    setNow(1);
   }
 
   return (

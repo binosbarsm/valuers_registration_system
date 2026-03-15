@@ -1,10 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import react,{ useState,useContext } from "react"
 import styles from "./frv.module.css"
 import { useRouter } from "next/navigation"
-export default function FRV({ prevStep }) {
+import { stageContext } from "../../../layout"
 
+
+export default function FRV() {
+const {now,setNow}= useContext(stageContext);
   const [formData, setFormData] = useState({
     surname: "",
     firstName: "",
@@ -86,13 +89,20 @@ const handleSubmit = () => {
     education
   }
 
+  
   // store temporarily for next page
   sessionStorage.setItem("frvApplication", JSON.stringify(finalData))
 
   // go to upload page
   router.push("/Dashboard/navigation/Application/documents/frv")
-
+   setNow((prev)=>prev + 1);
 }
+
+const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
+
   return (
     <div className={styles.container}>
 
@@ -451,7 +461,7 @@ const handleSubmit = () => {
       {/* BUTTONS */}
 
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn} onClick={prevStep}>Prev</button>
+        <button className={styles.prevBtn} onClick={handlePrev}>Prev</button>
         <button className={styles.nextBtn} onClick={handleSubmit}>Continue</button>
       </div>
 

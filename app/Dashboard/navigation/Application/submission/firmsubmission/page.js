@@ -1,15 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import river,{ useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./submission.module.css";
 import { FaEdit, FaEye } from "react-icons/fa";
-
+import { stageContext } from "../../layout";
 export default function FinalStage({ prevStep }) {
   const [formData, setFormData] = useState(null);
   const [agreed, setAgreed] = useState(false);
     const [showModal, setShowModal] = useState(false);
   const router = useRouter();
+const {now,setNow}= useState(stageContext);
 
   useEffect(() => {
     const storedData = sessionStorage.getItem("frvApplication");
@@ -31,7 +32,14 @@ export default function FinalStage({ prevStep }) {
   }
 
     function handleNext(){
-    router.push("/Dashboard/navigation/Application/payments.firmpayments");
+    router.push("/Dashboard/navigation/Application/payments/firmpayment");  
+
+  }
+
+      function handlePrev(){
+   router.back();
+    setNow((prev)=>prev + 1);
+  
   }
 
   return (
@@ -130,7 +138,7 @@ export default function FinalStage({ prevStep }) {
 
       {/* --- Buttons --- */}
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn} onClick={prevStep}>
+        <button className={styles.prevBtn} onClick={handlePrev}>
           Prev
         </button>
           <button className={styles.submitBtn} disabled={!agreed} onClick={handlesubmission}>

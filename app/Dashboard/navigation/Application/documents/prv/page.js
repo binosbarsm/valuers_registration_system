@@ -1,11 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import react,{ useState, useEffect,useContext } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./upload.module.css"
 import { FaFileImage, FaFilePdf, FaFileWord, FaFileAlt } from "react-icons/fa"
+import { stageContext } from "../../layout"
 
 export default function UploadDocuments() {
+ const {now,setNow}= useContext(stageContext);
+
   const router = useRouter()
   const [photo, setPhoto] = useState(null)
   const [documents, setDocuments] = useState([])
@@ -79,8 +82,15 @@ export default function UploadDocuments() {
       }))
     ))
  **/
-    router.push("/Dashboard/navigation/Application/submission")
+    router.push("/Dashboard/navigation/Application/submission");
+      setNow((prev)=>prev + 1);
   }
+
+  
+  const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
 
   const getFileIcon = (file) => {
     if (!file) return <FaFileAlt className={styles.fileIconGeneric} />
@@ -157,7 +167,7 @@ export default function UploadDocuments() {
       </div>
 
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn} onClick={() => router.back()}>Prev</button>
+        <button className={styles.prevBtn} onClick={handlePrev}>Prev</button>
         <button className={styles.nextBtn} onClick={handleSubmit}>Submit</button>
       </div>
     </div>

@@ -1,16 +1,22 @@
 "use client"
 
-import { useState } from "react";
+import react,{ useState,useContext } from "react";
 import styles from "./application.module.css";
 import { useRouter } from "next/navigation";
 import { GiRead } from "react-icons/gi";
 import { LuPanelTopClose } from "react-icons/lu";
+import { stageContext } from "./layout";
+
 export default function ApplicationWelcome() {
+  
   const router = useRouter();
   const [showAttachments, setShowAttachments] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
+  
+  const {now,setNow}= useContext(stageContext);
 
-  function handleclick() {
+  function handleclick(n) {
+    setNow((prev) => prev + n);
     router.push("/Dashboard/navigation/Application/registration-type")
   }
 
@@ -91,7 +97,7 @@ export default function ApplicationWelcome() {
 
         {/* Start Button */}
         <div className={styles.action}>
-          <button className={styles.startBtn} onClick={handleclick}>
+          <button className={styles.startBtn} onClick={()=>{handleclick(1)}}>
             Start Application
           </button>
         </div>

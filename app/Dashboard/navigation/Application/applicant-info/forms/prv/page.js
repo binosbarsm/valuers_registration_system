@@ -1,10 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import react,{ useState,useContext } from "react"
 import styles from "./prv.module.css"
 import { useRouter } from "next/navigation"
+import { stageContext } from "../../../layout"
 
-export default function PRV({ prevStep }) {
+export default function PRV() {
+
+  const {now,setNow}=useContext(stageContext);
 
   const router = useRouter()
 
@@ -151,7 +154,13 @@ export default function PRV({ prevStep }) {
 
     sessionStorage.setItem("frvApplication", JSON.stringify(finalData))
     router.push("/Dashboard/navigation/Application/documents/prv")
+     setNow((prev)=>prev + 1);
   }
+
+  const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
 
   /* ================================================= */
 
@@ -417,7 +426,7 @@ export default function PRV({ prevStep }) {
 
       {/* BUTTONS */}
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn} onClick={prevStep}>Prev</button>
+        <button className={styles.prevBtn} onClick={handlePrev}>Prev</button>
         <button className={styles.nextBtn} onClick={handleSubmit}>Continue</button>
       </div>
 

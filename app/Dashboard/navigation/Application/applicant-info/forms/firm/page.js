@@ -1,10 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import react,{ useState,useContext } from "react"
+import { stageContext } from "../../../layout"
 import { useRouter } from "next/navigation"
 import styles from "./firm.module.css"
 
 export default function FirmRegistrationForm(){
+const {now,setNow}= useContext(stageContext);
 
 const router = useRouter()
 
@@ -160,6 +162,12 @@ telephone:""
 SUBMIT
 ========================= */
 
+const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
+
+
 const handleSubmit = ()=>{
 
 const firmData = {
@@ -175,7 +183,7 @@ references
 sessionStorage.setItem("firmRegistration",JSON.stringify(firmData))
 
 router.push("/Dashboard/navigation/Application/documents/firm")
-
+setNow((prev)=>prev + 1);
 }
 
 /* =========================
@@ -417,7 +425,7 @@ onChange={(e)=>updateArray(references,setReferences,index,"telephone",e.target.v
 
 <div className={styles.buttonGroup}>
 
-<button className={styles.prevBtn} onClick={()=>router.back()}>
+<button className={styles.prevBtn} onClick={handlePrev}>
 Prev
 </button>
 

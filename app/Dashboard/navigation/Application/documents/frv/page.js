@@ -1,12 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState,useContext } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./upload.module.css"
+import { stageContext } from "../../layout"
 import { FaFilePdf, FaFileWord, FaFileImage, FaFileAlt } from "react-icons/fa"
 
 export default function UploadDocuments() {
-
+const {now,setNow}= useContext(stageContext);
   const [education, setEducation] = useState([])
   const [files, setFiles] = useState({})
   const router = useRouter()
@@ -31,7 +32,14 @@ export default function UploadDocuments() {
   // Navigate to payment page
   const handleClick = () => {
     router.push("/Dashboard/navigation/Application/submission")
+    setNow((prev)=>prev + 1);
   }
+
+  
+  const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
 
   // Determine icon based on file type
   const getFileIcon = (file) => {
@@ -130,7 +138,7 @@ export default function UploadDocuments() {
 
       {/* BUTTONS */}
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn}>Prev</button>
+        <button className={styles.prevBtn} onClick={handlePrev}>Prev</button>
         <button className={styles.nextBtn} onClick={handleClick}>Submit</button>
       </div>
     </div>

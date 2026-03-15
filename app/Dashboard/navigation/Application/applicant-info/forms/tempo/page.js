@@ -1,10 +1,14 @@
 "use client"
 
-import { useState } from "react"
+
+import react,{ useState,useContext } from "react"
 import styles from "./tempo.module.css"
 import { useRouter } from "next/navigation"
+import { stageContext } from "../../../layout"
 
-export default function TEMPO({ prevStep }) {
+export default function TEMPO() {
+    const {now,setNow}=useContext(stageContext);
+
   const router = useRouter()
 
   const [formData, setFormData] = useState({
@@ -46,8 +50,13 @@ export default function TEMPO({ prevStep }) {
 
   // ----- INPUT CHANGE -----
   const handleChange=(e)=>{const {name,value}=e.target; setFormData({...formData,[name]:value})}
-  const handleSubmit=()=>{ const finalData={...formData,education,experience,previousReg,projectdetails,referees}; sessionStorage.setItem("frvApplication",JSON.stringify(finalData)); router.push("/Dashboard/navigation/Application/documents/tempo") }
-
+  const handleSubmit=()=>{ const finalData={...formData,education,experience,previousReg,projectdetails,referees}; sessionStorage.setItem("frvApplication",JSON.stringify(finalData)); router.push("/Dashboard/navigation/Application/documents/tempo");  router.back();
+  setNow((prev)=>prev + 1); }
+  
+  const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Application For Temporary Registration</h1>
@@ -230,7 +239,7 @@ export default function TEMPO({ prevStep }) {
 
       {/* BUTTONS */}
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn} onClick={prevStep}>Prev</button>
+        <button className={styles.prevBtn} onClick={handlePrev}>Prev</button>
         <button className={styles.nextBtn} onClick={handleSubmit}>Continue</button>
       </div>
 

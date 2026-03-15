@@ -1,10 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import react,{ useState,useContext } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./type.module.css"
+import { stageContext } from "../layout";
 
 export default function RegistrationType() {
+const {now,setNow}= useContext(stageContext);
 
   const [selectedType, setSelectedType] = useState("")
   const router = useRouter();
@@ -43,11 +45,12 @@ if (!selectedType) return
 
 // Navigate directly to the selected registration form
 router.push(`/Dashboard/navigation/Application/applicant-info/forms/${selectedType}`)
-
+setNow((prev)=>prev + 1);
 }
 
   const handlePrev = () => {
     router.push("/Dashboard/navigation/Application/registration-type") // Back to welcome page
+    setNow((prev)=>prev - 1);
   }
 
   return (

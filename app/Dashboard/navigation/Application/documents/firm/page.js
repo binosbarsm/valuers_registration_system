@@ -1,13 +1,16 @@
 "use client"
 
-import { useState } from "react"
+import react,{ useState,useContext } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./upload.module.css"
 import { FaFilePdf, FaFileWord, FaFileImage } from "react-icons/fa"
+import { stageContext } from "../../layout"
+
 
 export default function UploadDocuments() {
-  const router = useRouter()
+  const {now,setNow}= useContext(stageContext);
 
+  const router = useRouter()
   // State for required documents
   const [othersCertificates, setOthersCertificates] = useState([null])
   const [bankStatement, setBankStatement] = useState(null)
@@ -48,8 +51,14 @@ export default function UploadDocuments() {
       titleDeed
     }
     sessionStorage.setItem("firmDocuments", JSON.stringify(finalDocs))
-    router.push("/Dashboard/navigation/Application/submission/firmsubmission")
+    router.push("/Dashboard/navigation/Application/submission/firmsubmission");
+    setNow((prev)=>prev + 1);
   }
+
+  const handlePrev= ()=>{
+  router.back();
+  setNow((prev)=>prev - 1);
+}
 
   return (
     <div className={styles.container}>
@@ -212,7 +221,7 @@ export default function UploadDocuments() {
 
       {/* Buttons */}
       <div className={styles.buttonGroup}>
-        <button className={styles.prevBtn} onClick={() => router.back()}>Prev</button>
+        <button className={styles.prevBtn} onClick={handlePrev}>Prev</button>
         <button className={styles.nextBtn} onClick={handleSubmit}>Submit</button>
       </div>
     </div>
